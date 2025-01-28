@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ArrayList1 {
     public static void main(String[] args) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        ArrayList<Integer> arrayList = new ArrayList();
         arrayList.add(8);
         arrayList.add(10);
         arrayList.add(89);

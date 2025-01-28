@@ -15,6 +15,7 @@ public class ConvertArrayToArrayList {
         }
 
         List<String> convertToArrayList = Arrays.asList(arr);
+        System.out.println(Arrays.toString(arr));
         System.out.println(convertToArrayList.contains("Sasha"));
     }
 }
