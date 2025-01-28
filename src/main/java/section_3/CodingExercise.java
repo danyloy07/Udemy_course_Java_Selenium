@@ -6,10 +6,10 @@ public class CodingExercise {
                 System.out.println(numbers[0]);
         System.out.println(numbers[4]);
         //Using a loop, print the elements of the numbers array in reverse order.
-        for (int i=4;i>=0;i--){
-            System.out.println(numbers[i]);
-            System.out.println(numbers.length);
+        for (int i=numbers.length -1;i>=0;i--){
+            System.out.print(numbers[i]);
         }
+        System.out.print(numbers.length);
             }
 
         }
