@@ -16,6 +16,7 @@ public class Methods {
     public static void main(String[] args) {
         Methods methods = new Methods();
         methods.getData();
+
         String returnName = methods.returnMethod();
         System.out.println(returnName);
 
