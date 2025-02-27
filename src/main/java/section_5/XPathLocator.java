@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.util.Random;
 
 public class XPathLocator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //Xpath –
         //	//Tagname[@attribute=’value’]
         // //input[@placeholder=’ Username’’]
@@ -35,6 +35,7 @@ public class XPathLocator {
                 .click();
         webDriver1.findElement(By.xpath("//a[text()='Forgot your password?']")) // по совпадению текста
                 .click();
+        Thread.sleep(1000);
         webDriver1.findElement(By.xpath("//input[@placeholder='Name']"))
                 .sendKeys("Name1");
         webDriver1.findElement(By.xpath("//input[contains(@placeholder, 'Email')]"))
@@ -47,7 +48,21 @@ public class XPathLocator {
                 .sendKeys("0000000000000");
         webDriver1.findElement(By.cssSelector(".reset-pwd-btn")) //
                 .click();
-        webDriver1.findElement(By.cssSelector("form p")) // css parent child
-                .getText();
+        System.out.println("Notification message: " + webDriver1.findElement(By.cssSelector("form p")) // css parent child
+                .getText());
+        webDriver1.findElement(By.xpath("//div[@class='forgot-pwd-btn-conainer']/button[1]"))
+                .click();
+        Thread.sleep(1000);
+        webDriver1.findElement(By.cssSelector("#inputUsername"))
+                .sendKeys("Danil");
+        webDriver1.findElement(By.cssSelector("input[type*='pass']")).
+                sendKeys("rahulshettyacademy");
+        webDriver1.findElement(By.xpath("//input[@id='chkboxTwo']"))
+                .click();
+        webDriver1.findElement(By.xpath("//button[contains(@class,'submit')]"))
+                .click();
+webDriver1.quit();
+
+
     }
 }

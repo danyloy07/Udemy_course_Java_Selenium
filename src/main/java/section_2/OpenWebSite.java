@@ -11,6 +11,6 @@ public class OpenWebSite {
         System.out.println(webDriver.getTitle());
         System.out.println(webDriver.getCurrentUrl());
         webDriver.quit(); // закрывает все смежные  вкладки
-        webDriver.close(); // закрівает только активную вкладку
+        webDriver.close(); // закрывает только активную вкладку
     }
 }
