@@ -1,23 +1,25 @@
-package section_8;
+package section_9;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class EcommerceProject {
+public class ImplicitWait {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://rahulshettyacademy.com/seleniumPractise/");
         String[] products = {"Capsicum", "Raspberry", "Mango"};
         addItems(driver,products);
-        driver.quit();
+        processToCart(driver);
+        //driver.quit();
 
     }
     public static void addItems(WebDriver driver,String[] products){
@@ -36,5 +38,14 @@ public class EcommerceProject {
             }
         }
     }
-}
+    public static void processToCart(WebDriver driver){
 
+        driver.findElement(By.xpath("//img[@alt='Cart']")).click();
+        driver.findElement(By.xpath("//button[contains(text(), 'PROCEED TO CHECKOUT')]")).click();
+        driver.findElement(By.xpath("//input[@class='promoCode']")).sendKeys("rahulshettyacademy");
+        driver.findElement(By.xpath("//button[text()='Apply']")).click();
+        System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
+        Assert.assertEquals(driver.findElement(By.cssSelector("span.promoInfo")).getText(), "Code applied ..!");
+
+    }
+}
