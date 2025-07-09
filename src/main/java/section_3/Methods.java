@@ -23,7 +23,7 @@ public class Methods {
         MethodsCallInNewClass methodsCall = new MethodsCallInNewClass();
         String returnNameFromAnotherClass = methodsCall.returnMethodFromAnotherClass();
         System.out.println(returnNameFromAnotherClass);
-        int number = methodsCall.returnInt();
+        int number = MethodsCallInNewClass.returnInt();
         System.out.println(number);
 
         staticTest();
