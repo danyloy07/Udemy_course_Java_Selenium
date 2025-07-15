@@ -26,18 +26,18 @@ public class SeparateTabs {
         WebElement firstColum = footer.findElement(By.xpath("//td[1]/ul"));
         System.out.println(firstColum.findElements(By.tagName("a")).size());
 
-       List<WebElement> links = firstColum.findElements(By.tagName("a"));
+        List<WebElement> links = firstColum.findElements(By.tagName("a"));
         for (int i = 1; i < links.size(); i++) {
             String clickOnLink = Keys.chord(Keys.CONTROL, Keys.ENTER);
             links.get(i).sendKeys(clickOnLink);
         }
-
-            Set<String> abc=driver.getWindowHandles();//4
-            Iterator<String> it=abc.iterator();
-            while(it.hasNext())
-            {
-                driver.switchTo().window(it.next());
-                System.out.println(driver.getTitle());
-            }
+        Set<String> window = driver.getWindowHandles();
+        Iterator<String> it = window.iterator();
+        while (it.hasNext()) {
+            driver.switchTo().window(it.next());
+            System.out.println(driver.getTitle());
+        }
+        driver.quit();
     }
 }
+
