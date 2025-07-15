@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -19,24 +20,17 @@ public class Assignment_6 {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-       WebElement checkbox = driver.findElement(By.id("checkBoxOption2"));
-       checkbox.click();
-       String valueOfCheckbox = checkbox.getDomAttribute("value");
-
-       Select select = new Select(driver.findElement(By.id("dropdown-class-example")));
-       select.selectByValue(valueOfCheckbox);
-
-       driver.findElement(By.id("name")).sendKeys(valueOfCheckbox);
-
-       driver.findElement(By.id("alertbtn")).click();
-       String textFromAlert = driver.switchTo().alert().getText();
-       String[] splittedArray = textFromAlert.split(",");
-       String[] finalText = splittedArray[0].split(" ");
-       Assert.assertEquals(finalText[1], "option2");
-       driver.switchTo().alert().accept();
-
-       driver.quit();
-
-
+        WebElement checkbox = driver.findElement(By.id("checkBoxOption3"));
+        checkbox.click();
+        Assert.assertTrue(checkbox.isSelected());
+        String grabText = checkbox.getDomAttribute("value");
+        Select dropdown = new Select(driver.findElement(By.id("dropdown-class-example")));
+        dropdown.selectByValue(grabText);
+        driver.findElement(By.id("name")).sendKeys(grabText);
+        driver.findElement(By.id("alertbtn")).click();
+        String textAllert = driver.switchTo().alert().getText();
+        Assert.assertTrue(textAllert.contains(grabText), "Option3");
+        driver.switchTo().alert().accept();
+        driver.quit();
     }
 }
