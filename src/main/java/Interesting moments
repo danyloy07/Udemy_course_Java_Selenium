@@ -1,0 +1,3 @@
+window.scrollBy(0,500) - можно проверить в браузере через консоль
+document.querySelector(".someSelector").scrollTop=5000; - в консоле так изем локатор в ДОМ js и скролим в этом локаторе
+driver.findElement(By.id("autocomplete")).sendKeys(Keys.DOWN, Keys.ENTER); - этим мы нажижаем клавишы , например когда хотим написать больгими буквами и тд.
