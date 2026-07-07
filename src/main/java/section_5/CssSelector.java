@@ -8,11 +8,6 @@ import java.time.Duration;
 
 public class CssSelector {
     public static void main(String[] args) {
-        //<input type="text" placeholder="Username" id="inputUsername" value="">
-        //Class name  -> tagname.classname --> button.signInBtn
-        //Id --> tagname#id --> input#inputUserName
-        //Tagname[attribute='value'] --> Input[placeholder='Username']
-
         WebDriver webDriver1 = new ChromeDriver();
         webDriver1.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         webDriver1.get("https://rahulshettyacademy.com/locatorspractice/");
