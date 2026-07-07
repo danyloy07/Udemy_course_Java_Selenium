@@ -9,7 +9,7 @@ public class ConvertArrayToArrayList {
         String[] arr = {"Danil", "Gabriel", "Sasha", "Andrey"};
 
         for (int i=0;i< arr.length;i++){
-            if (arr[i] == "Sasha"){
+            if (arr[i].equals("Sasha")){
                 System.out.println(arr[i]);
             }
         }

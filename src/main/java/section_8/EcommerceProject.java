@@ -26,7 +26,7 @@ public class EcommerceProject {
         for (int i = 0;i<listOfProducts.size(); i++){
             String[] getProducts = listOfProducts.get(i).getText().split("-");
             String correctName = getProducts[0].trim();
-            List itemsNeededList = Arrays.asList(products);
+            List<String> itemsNeededList = Arrays.asList(products);
             if (itemsNeededList.contains(correctName)){
                 j++;
                 driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
